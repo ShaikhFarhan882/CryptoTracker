@@ -4,7 +4,7 @@ CryptoTracker Android Application. Powered by Coincap API
 # Architecture  
 MVVM (Model - ViewModel - View) is the design pattern used for making this app. MVVM provides a clear separation of concern and has great support in Android SDK in the form of Architecture Components.  
 
-#Library Used  
+# Library Used  
 1. Retrofit2
 2. Navigation Component
 3. LiveData
