@@ -21,33 +21,12 @@ import java.io.IOException
 class CryptoViewModel(private val repository: Repository, application: Application) :
     AndroidViewModel(application) {
 
-    val cryptoList : MutableLiveData<Resource<CryptoResponse>> = MutableLiveData()
-
+    val cryptoList: MutableLiveData<Resource<CryptoResponse>> = MutableLiveData()
 
 
     init {
         getData()
     }
-
-    /*// Searching the cryptocurrency
-      fun searchCrypto(query : String) : LiveData<List<Data>> {
-          return Transformations.map(cryptoList) {
-             it.data.filter {
-                 it.name!!.contains(query)
-             }
-          }
-      }*/
-
-
-    //Api operation
-    /*   fun getData() = viewModelScope.launch {
-           val response = repository.getCryptoData()
-           if(response.isSuccessful){
-               response.body()?.let {
-                   cryptoList.postValue(response.body())
-               }
-           }
-       }*/
 
 
     fun getData() = viewModelScope.launch {
@@ -55,7 +34,7 @@ class CryptoViewModel(private val repository: Repository, application: Applicati
     }
 
     //Handling the response
-    private fun handleResponse(response: Response<CryptoResponse>) : Resource<CryptoResponse> {
+    private fun handleResponse(response: Response<CryptoResponse>): Resource<CryptoResponse> {
         if (response.isSuccessful) {
             response.body()?.let {
                 return Resource.Success(it)
@@ -95,6 +74,10 @@ class CryptoViewModel(private val repository: Repository, application: Applicati
     }
 
     fun getSavedCrypto() = repository.getSavedCrypto()
+
+    fun deleteALl() = viewModelScope.launch {
+        repository.deleteAll()
+    }
 
 
     //Internet Connectivity Conformation

@@ -16,4 +16,9 @@ interface CryptoDAO {
 
     @Query("SELECT * FROM crypto")
     fun getSavedCrypto() : LiveData<List<Data>>
+
+    @Query("DELETE FROM crypto")
+    suspend fun deleteAllCurrency()
+
+
 }

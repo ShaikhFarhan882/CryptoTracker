@@ -15,5 +15,7 @@ class Repository(private val cryptoDatabase: CryptoDatabase) {
 
     suspend fun delete(data: Data) = cryptoDatabase.cryptoDAO().deleteCrypto(data)
 
+    suspend fun deleteAll() = cryptoDatabase.cryptoDAO().deleteAllCurrency()
+
 
 }

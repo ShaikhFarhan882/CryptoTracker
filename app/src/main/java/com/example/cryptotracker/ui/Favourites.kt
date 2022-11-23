@@ -82,8 +82,25 @@ class Favourites : Fragment() {
             attachToRecyclerView(binding.FavRecView)
         }
 
+        setHasOptionsMenu(true)
+
 
         return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.fav_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.deleteALL -> {
+                viewModel.deleteALl()
+                Toast.makeText(requireContext(), "Cleared All", Toast.LENGTH_SHORT).show()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 
