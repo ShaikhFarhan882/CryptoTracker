@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
-            name="response"
-            type="com.example.cryptotracker.model.Data" />
+            name="Data"
+            type="com.example.cryptotracker.model.search.Data" />
 
     </data>
 
@@ -38,8 +38,8 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:padding="5dp"
-                    android:text="@{response.name}"
-                    android:textColor="@color/white"
+                    android:text="@{Data.name}"
+                    android:textColor="@color/primary"
                     android:textSize="26sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -51,8 +51,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
-                    android:text="@{response.symbol}"
-                    android:textColor="@color/white"
+                    android:text="@{Data.symbol}"
+                    android:textColor="@color/primary"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -65,8 +65,8 @@
                     android:layout_marginTop="10dp"
                     android:maxLength="9"
                     android:maxLines="1"
-                    android:text="@{`$` + response.priceUsd}"
-                    android:textColor="@color/white"
+                    android:text="@{`$` + Data.priceUsd}"
+                    android:textColor="@color/primary"
                     android:elevation="12dp"
                     android:textSize="24sp"
                     android:textStyle="bold"
@@ -74,7 +74,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
                 <TextView
-                    android:id="@+id/changed24hrs"
+                    android:id="@+id/searchChanged24hrs"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
@@ -86,27 +86,10 @@
                     app:layout_constraintStart_toEndOf="@+id/textView3"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/add_to_fav"
-                    android:elevation="16dp"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/ic_fav"
-                    app:tint="@color/white"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="16dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
         </com.google.android.material.card.MaterialCardView>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
-
-

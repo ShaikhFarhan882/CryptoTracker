@@ -9,12 +9,15 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="dark">#050f2e</color>
-    <color name="light">#DCDCDC</color>
+    <color name="light">#F3F4F8</color>
+    <color name="primary">#F9F9F9</color>
+    <color name="secondary">#9496A1</color>
     <color name="gray">#727D9E</color>
 
     <color name="copy">#73C580</color>
     <color name="clear">#FF4433</color>
     <color name="yellow">#FFEB3B</color>
+    <color name="orange">#FF7F50</color>
 
     <color name="fav_color">#B11530</color>
 

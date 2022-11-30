@@ -9,6 +9,8 @@ class Repository(private val cryptoDatabase: CryptoDatabase) {
 
     suspend fun getCryptoData() = RetrofitBuilder.API.getCryptoData()
 
+    suspend fun searchCrypto(id : String) = RetrofitBuilder.API.searchCrypto(id)
+
     suspend fun upsert(data: Data) = cryptoDatabase.cryptoDAO().upsert(data)
 
     fun getSavedCrypto() : LiveData<List<Data>> = cryptoDatabase.cryptoDAO().getSavedCrypto()

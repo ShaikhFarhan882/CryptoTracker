@@ -10,6 +10,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.cryptotracker.model.CryptoResponse
 import com.example.cryptotracker.model.Data
+import com.example.cryptotracker.model.search.SearchResponse
 import com.example.cryptotracker.repo.Repository
 import com.example.cryptotracker.utils.GetContext
 import com.example.cryptotracker.utils.Resource
@@ -23,6 +24,8 @@ class CryptoViewModel(private val repository: Repository, application: Applicati
 
     val cryptoList: MutableLiveData<Resource<CryptoResponse>> = MutableLiveData()
 
+    val searchList: MutableLiveData<Resource<SearchResponse>> = MutableLiveData()
+
 
     init {
         getData()
@@ -32,6 +35,11 @@ class CryptoViewModel(private val repository: Repository, application: Applicati
     fun getData() = viewModelScope.launch {
         safeCall()
     }
+
+    fun searchData(id : String) = viewModelScope.launch {
+        safeSearchCall(id)
+    }
+
 
     //Handling the response
     private fun handleResponse(response: Response<CryptoResponse>): Resource<CryptoResponse> {
@@ -60,6 +68,34 @@ class CryptoViewModel(private val repository: Repository, application: Applicati
                 else -> cryptoList.postValue(Resource.Error("Data Conversion Error"))
             }
 
+        }
+    }
+
+    //Handle Search
+    private fun handleSearchResponse(response: Response<SearchResponse>): Resource<SearchResponse> {
+        if (response.isSuccessful) {
+            response.body()?.let {
+                return Resource.Success(it)
+            }
+        }
+        return Resource.Error(response.message())
+    }
+
+    suspend fun safeSearchCall(id: String) {
+        searchList.postValue(Resource.Loading())
+        try {
+            if (checkForConnectivity()) {
+                val response = repository.searchCrypto(id)
+                searchList.postValue(handleSearchResponse(response))
+            } else {
+                searchList.postValue(Resource.Error("No Internet Connection"))
+            }
+
+        } catch (e: IOException) {
+            when (e) {
+                is IOException -> searchList.postValue(Resource.Error("Network Failure"))
+                else -> searchList.postValue(Resource.Error("Conversion Error"))
+            }
         }
     }
 

@@ -29,7 +29,8 @@ class CryptoAdapter: ListAdapter<Data, CryptoAdapter.ViewHolder>(COMPARATOR) {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-     return ViewHolder(SingleRowBinding.inflate(LayoutInflater.from(parent.context),parent,false))
+     return ViewHolder(SingleRowBinding.inflate(LayoutInflater.from(parent.context),
+         parent, false))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -70,6 +71,7 @@ class CryptoAdapter: ListAdapter<Data, CryptoAdapter.ViewHolder>(COMPARATOR) {
 
         val fcsRed = ForegroundColorSpan(Color.RED)
         val fcsGreen = ForegroundColorSpan(Color.parseColor("#73C580"))
+        val fcsBlack = ForegroundColorSpan(Color.parseColor("#000000"))
 
         fun currencyChange(prefix : String, input : String) : SpannableStringBuilder{
             val value = input.toDouble()

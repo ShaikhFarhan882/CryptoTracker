@@ -15,5 +15,10 @@
         android:name="com.example.cryptotracker.ui.Favourites"
         android:label="fragment_favourites"
         tools:layout="@layout/fragment_favourites" />
+    <fragment
+        android:id="@+id/searchCrypto"
+        android:name="com.example.cryptotracker.ui.SearchCrypto"
+        android:label="fragment_search_crypto"
+        tools:layout="@layout/fragment_search_crypto" />
 
 </navigation>
