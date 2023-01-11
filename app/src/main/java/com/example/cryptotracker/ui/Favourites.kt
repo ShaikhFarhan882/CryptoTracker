@@ -6,6 +6,7 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -35,9 +36,16 @@ class Favourites : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentFavouritesBinding.inflate(layoutInflater)
 
+       /* (requireActivity() as AppCompatActivity).supportActionBar?.title = "Saved Cryptocurrency"
+        (requireActivity() as AppCompatActivity).supportActionBar?.setBackgroundDrawable(
+            ColorDrawable(getResources().getColor(R.color.purple_500)));*/
+
+        //Custom Toolbar
+        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
         (requireActivity() as AppCompatActivity).supportActionBar?.title = "Saved Cryptocurrency"
         (requireActivity() as AppCompatActivity).supportActionBar?.setBackgroundDrawable(
-            ColorDrawable(getResources().getColor(R.color.purple_500)));
+            ColorDrawable(getResources().getColor(R.color.purple_500)))
+        (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         viewModel = (activity as MainActivity).viewModel
 
