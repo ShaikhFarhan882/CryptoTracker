@@ -34,8 +34,10 @@ class SearchCrypto : Fragment() {
 
         searchViewModel = (requireActivity() as MainActivity).viewModel
 
-
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = "Search"
+        //Custom Toolbar
+        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbarSearch)
+        (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = "Search Currencies"
         (requireActivity() as AppCompatActivity).supportActionBar?.setBackgroundDrawable(
             ColorDrawable(getResources().getColor(R.color.purple_500)));
 

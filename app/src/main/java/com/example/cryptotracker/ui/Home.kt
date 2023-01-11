@@ -31,9 +31,13 @@ class Home : Fragment() {
         _binding = FragmentHomeBinding.inflate(layoutInflater)
         viewModel = (activity as MainActivity).viewModel
 
+        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbarHome)
+        (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
         (requireActivity() as AppCompatActivity).supportActionBar?.title = "All Cryptocurrencies"
         (requireActivity() as AppCompatActivity).supportActionBar?.setBackgroundDrawable(
             ColorDrawable(getResources().getColor(R.color.purple_500)));
+
+
 
         myAdapter = CryptoAdapter()
         setRecyclerView(myAdapter)

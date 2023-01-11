@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
@@ -45,7 +46,7 @@ class Favourites : Fragment() {
         (requireActivity() as AppCompatActivity).supportActionBar?.title = "Saved Cryptocurrency"
         (requireActivity() as AppCompatActivity).supportActionBar?.setBackgroundDrawable(
             ColorDrawable(getResources().getColor(R.color.purple_500)))
-        (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
 
         viewModel = (activity as MainActivity).viewModel
 
@@ -104,8 +105,8 @@ class Favourites : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.deleteALL -> {
-                viewModel.deleteALl()
-                Toast.makeText(requireContext(), "Cleared All", Toast.LENGTH_SHORT).show()
+               /* viewModel.deleteALl()*/
+                deleteAllDialog()
             }
         }
         return super.onOptionsItemSelected(item)
@@ -120,6 +121,22 @@ class Favourites : Fragment() {
                 addDuration = 400L
             }
         }
+    }
+
+    private fun deleteAllDialog(){
+        val alertDialog = AlertDialog.Builder(requireContext()).apply {
+            setTitle("Clear All")
+            setMessage("Delete all saved currencies?")
+            setIcon(R.drawable.ic_delete)
+            setPositiveButton("Yes"){ i,j ->
+                viewModel.deleteALl()
+                Toast.makeText(requireContext(), "Cleared All", Toast.LENGTH_SHORT).show()
+            }
+            setNegativeButton("No"){i,j ->
+
+            }
+            setCancelable(true)
+        }.create().show()
     }
 
 
