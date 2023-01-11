@@ -14,9 +14,11 @@ MVVM (Model - ViewModel - View) is the design pattern used for making this app. 
 7. Data binding  
 
 # API used  
-https://api.coincap.io/v2/assets  
+https://docs.coincap.io/  
 
 # Screenshots  
-![1](https://user-images.githubusercontent.com/85299521/203060864-37862640-4a4d-4ec5-a9be-2c76d10d7850.png)
-![2](https://user-images.githubusercontent.com/85299521/203060897-2ff53902-affd-4b17-b693-fb713a5a6dcd.png)
+![1 (1)](https://user-images.githubusercontent.com/85299521/204769248-2d0ec2e5-64da-4a1f-a0fd-dd54b998076e.png)
+![1 (2)](https://user-images.githubusercontent.com/85299521/204769292-bb6f24e5-9fd2-40cd-989c-077d01574900.png)
+![1 (3)](https://user-images.githubusercontent.com/85299521/204769331-fd024e4f-783f-43db-a21f-988804f0a910.png)
+
 
