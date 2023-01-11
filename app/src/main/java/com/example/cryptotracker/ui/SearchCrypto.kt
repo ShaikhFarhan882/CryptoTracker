@@ -50,7 +50,6 @@ class SearchCrypto : Fragment() {
                     if (binding.etCryptoSearch.text.isNotEmpty()) {
                         val input = binding.etCryptoSearch.text.toString().lowercase()
                         searchViewModel.searchData(input)
-                        binding.etCryptoSearch.text.clear()
                     } else {
                         Toast.makeText(requireContext(),"Enter Currency Name",Toast.LENGTH_SHORT).show()
                     }

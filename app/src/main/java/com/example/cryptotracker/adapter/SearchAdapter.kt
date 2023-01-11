@@ -25,8 +25,11 @@ class SearchAdapter : ListAdapter<Data, SearchAdapter.ViewHolder>(COMPARATOR) {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(SingleRowSearchBinding.inflate(LayoutInflater.from(parent.context),
-            parent, false))
+        return ViewHolder(
+            SingleRowSearchBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent, false)
+        )
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

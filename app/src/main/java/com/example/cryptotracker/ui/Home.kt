@@ -44,7 +44,7 @@ class Home : Fragment() {
                 is Resource.Success -> {
                     hideProgressBar()
                     hideOfflineLogo()
-                  response.data.let{
+                  response.data?.let{
                       myAdapter.submitList(it!!.data.toList())
                   }
                 }
