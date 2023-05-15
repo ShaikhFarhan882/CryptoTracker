@@ -7,11 +7,7 @@
 
     </data>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
-        <com.google.android.material.appbar.AppBarLayout
+     <!--   <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true">
@@ -23,14 +19,13 @@
                 app:layout_scrollFlags="scroll|enterAlways"
                 />
 
-        </com.google.android.material.appbar.AppBarLayout>
+        </com.google.android.material.appbar.AppBarLayout>-->
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-            android:background="@color/primary"
             tools:context=".ui.SearchCrypto">
 
 
@@ -45,8 +40,6 @@
                 android:inputType="text"
                 android:maxLines="1"
                 android:padding="20dp"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
                 app:layout_constraintEnd_toEndOf="@id/guideline3"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@id/guideline2"
@@ -60,7 +53,6 @@
                 android:layout_marginTop="12dp"
                 android:padding="2dp"
                 android:text="Result: "
-                android:textColor="@color/copy"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="@id/guideline2"
                 app:layout_constraintTop_toBottomOf="@+id/et_crypto_search" />
@@ -98,10 +90,6 @@
                 android:orientation="horizontal"
                 app:layout_constraintGuide_begin="120dp" />
 
-
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

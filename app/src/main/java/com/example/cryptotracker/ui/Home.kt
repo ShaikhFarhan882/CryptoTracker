@@ -31,11 +31,13 @@ class Home : Fragment() {
         _binding = FragmentHomeBinding.inflate(layoutInflater)
         viewModel = (activity as MainActivity).viewModel
 
-        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbarHome)
+       /* (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbarHome)
         (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = "All Cryptocurrencies"
-        (requireActivity() as AppCompatActivity).supportActionBar?.setBackgroundDrawable(
-            ColorDrawable(getResources().getColor(R.color.purple_500)));
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = "All Cryptocurrencies"*/
+
+       /* (requireActivity() as AppCompatActivity).supportActionBar?.setBackgroundDrawable(
+            ColorDrawable(getResources().getColor(R.color.purple_500)));*/
+
 
 
 
@@ -75,13 +77,10 @@ class Home : Fragment() {
             Toast.makeText(requireContext(), "Saved to Favourites", Toast.LENGTH_SHORT).show()
         }
 
-
-
         setHasOptionsMenu(true)
 
         return binding.root
     }
-
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)

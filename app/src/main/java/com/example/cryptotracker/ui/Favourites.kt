@@ -37,16 +37,6 @@ class Favourites : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentFavouritesBinding.inflate(layoutInflater)
 
-       /* (requireActivity() as AppCompatActivity).supportActionBar?.title = "Saved Cryptocurrency"
-        (requireActivity() as AppCompatActivity).supportActionBar?.setBackgroundDrawable(
-            ColorDrawable(getResources().getColor(R.color.purple_500)));*/
-
-        //Custom Toolbar
-        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = "Saved Cryptocurrency"
-        (requireActivity() as AppCompatActivity).supportActionBar?.setBackgroundDrawable(
-            ColorDrawable(getResources().getColor(R.color.purple_500)))
-        (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
 
         viewModel = (activity as MainActivity).viewModel
 
@@ -91,12 +81,13 @@ class Favourites : Fragment() {
             attachToRecyclerView(binding.FavRecView)
         }
 
+
+
         setHasOptionsMenu(true)
 
-
         return binding.root
-    }
 
+    }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.fav_menu, menu)
@@ -105,7 +96,7 @@ class Favourites : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.deleteALL -> {
-               /* viewModel.deleteALl()*/
+                viewModel.deleteALl()
                 deleteAllDialog()
             }
         }

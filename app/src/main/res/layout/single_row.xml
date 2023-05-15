@@ -20,6 +20,7 @@
             android:layout_height="wrap_content"
             android:elevation="20dp"
             app:cardCornerRadius="12dp"
+            style="@style/Widget.Material3.CardView.Elevated"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -28,8 +29,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:background="@color/secondary">
+                android:layout_height="150dp">
 
                 <TextView
                     android:id="@+id/textView"
@@ -39,7 +39,6 @@
                     android:layout_marginTop="10dp"
                     android:padding="5dp"
                     android:text="@{response.name}"
-                    android:textColor="@color/white"
                     android:textSize="26sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -52,7 +51,6 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:text="@{response.symbol}"
-                    android:textColor="@color/white"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -66,7 +64,7 @@
                     android:maxLength="9"
                     android:maxLines="1"
                     android:text="@{`$` + response.priceUsd}"
-                    android:textColor="@color/white"
+                    tools:text="$0.5252555"
                     android:elevation="12dp"
                     android:textSize="24sp"
                     android:textStyle="bold"
@@ -77,14 +75,15 @@
                     android:id="@+id/changed24hrs"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="105dp"
                     android:maxLength="11"
                     android:maxLines="1"
                     android:text=""
+                    android:layout_marginStart="8dp"
                     android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView3"
                     app:layout_constraintStart_toEndOf="@+id/textView3"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="@+id/textView3"
+                    tools:text="$0.5252555" />
 
                 <ImageView
                     android:id="@+id/add_to_fav"
@@ -92,7 +91,6 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/ic_fav"
-                    app:tint="@color/white"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="16dp"
                     app:layout_constraintEnd_toEndOf="parent"

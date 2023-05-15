@@ -31,14 +31,11 @@
             android:id="@+id/bottom_nav"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            app:itemIconTint="@drawable/nav_bar_colors"
-            app:itemTextColor="@drawable/nav_bar_colors"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/bottom_nav" />
+            app:menu="@menu/bottom_nav"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

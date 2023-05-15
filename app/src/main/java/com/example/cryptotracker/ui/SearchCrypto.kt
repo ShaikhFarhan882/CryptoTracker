@@ -35,12 +35,12 @@ class SearchCrypto : Fragment() {
         searchViewModel = (requireActivity() as MainActivity).viewModel
 
         //Custom Toolbar
-        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbarSearch)
+       /* (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbarSearch)
         (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
         (requireActivity() as AppCompatActivity).supportActionBar?.title = "Search Currencies"
-        (requireActivity() as AppCompatActivity).supportActionBar?.setBackgroundDrawable(
-            ColorDrawable(getResources().getColor(R.color.purple_500)));
 
+        (requireActivity() as AppCompatActivity).supportActionBar?.setBackgroundDrawable(
+            ColorDrawable(getResources().getColor(R.color.md_theme_co)));*/
 
         searchAdapter = SearchAdapter()
         setUpRecyclerView(searchAdapter)
@@ -81,9 +81,12 @@ class SearchCrypto : Fragment() {
 
 
 
+        setHasOptionsMenu(true)
 
         return binding.root
     }
+
+
 
 
 

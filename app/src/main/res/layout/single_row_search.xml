@@ -21,6 +21,7 @@
             android:elevation="20dp"
             app:cardCornerRadius="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            style="@style/Widget.Material3.CardView.Elevated"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +30,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:background="@color/secondary">
+                >
 
                 <TextView
                     android:id="@+id/textView"
@@ -39,7 +40,6 @@
                     android:layout_marginTop="10dp"
                     android:padding="5dp"
                     android:text="@{Data.name}"
-                    android:textColor="@color/primary"
                     android:textSize="26sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -52,7 +52,6 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:text="@{Data.symbol}"
-                    android:textColor="@color/primary"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -66,7 +65,6 @@
                     android:maxLength="9"
                     android:maxLines="1"
                     android:text="@{`$` + Data.priceUsd}"
-                    android:textColor="@color/primary"
                     android:elevation="12dp"
                     android:textSize="24sp"
                     android:textStyle="bold"
