@@ -15,6 +15,7 @@ import com.example.cryptotracker.MainActivity
 import com.example.cryptotracker.R
 import com.example.cryptotracker.adapter.SearchAdapter
 import com.example.cryptotracker.databinding.FragmentSearchCryptoBinding
+import com.example.cryptotracker.utils.EmptyDataObserver
 import com.example.cryptotracker.utils.Resource
 import com.example.cryptotracker.viewmodel.CryptoViewModel
 import jp.wasabeef.recyclerview.animators.SlideInDownAnimator
@@ -33,14 +34,6 @@ class SearchCrypto : Fragment() {
         _binding = FragmentSearchCryptoBinding.inflate(layoutInflater)
 
         searchViewModel = (requireActivity() as MainActivity).viewModel
-
-        //Custom Toolbar
-       /* (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbarSearch)
-        (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
-        (requireActivity() as AppCompatActivity).supportActionBar?.title = "Search Currencies"
-
-        (requireActivity() as AppCompatActivity).supportActionBar?.setBackgroundDrawable(
-            ColorDrawable(getResources().getColor(R.color.md_theme_co)));*/
 
         searchAdapter = SearchAdapter()
         setUpRecyclerView(searchAdapter)
@@ -94,6 +87,9 @@ class SearchCrypto : Fragment() {
         binding.searchRecview.apply {
             adapter = myAdapter
             layoutManager = LinearLayoutManager(requireContext())
+            //
+            val emptyDataObserver = EmptyDataObserver(binding.searchRecview,binding.emptyStateSearch)
+            searchAdapter.registerAdapterDataObserver(emptyDataObserver)
             itemAnimator = SlideInDownAnimator().apply {
                 addDuration = 400L
             }

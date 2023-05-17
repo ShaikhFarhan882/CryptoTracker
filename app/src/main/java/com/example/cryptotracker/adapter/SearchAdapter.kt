@@ -38,6 +38,7 @@ class SearchAdapter : ListAdapter<Data, SearchAdapter.ViewHolder>(COMPARATOR) {
         item?.let {
             holder.Bind(item)
         }
+
     }
 
 

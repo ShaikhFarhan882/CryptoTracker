@@ -1,13 +1,10 @@
 package com.example.cryptotracker.ui
 
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.*
-import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,19 +13,19 @@ import com.example.cryptotracker.MainActivity
 import com.example.cryptotracker.R
 import com.example.cryptotracker.adapter.CryptoAdapter
 import com.example.cryptotracker.databinding.FragmentFavouritesBinding
+import com.example.cryptotracker.utils.EmptyDataObserver
 import com.example.cryptotracker.viewmodel.CryptoViewModel
 import com.google.android.material.snackbar.Snackbar
 import jp.wasabeef.recyclerview.animators.LandingAnimator
-import jp.wasabeef.recyclerview.animators.SlideInDownAnimator
 
 
 class Favourites : Fragment() {
 
-    private var _binding : FragmentFavouritesBinding? = null
-    private val binding : FragmentFavouritesBinding get() = _binding!!
+    private var _binding: FragmentFavouritesBinding? = null
+    private val binding: FragmentFavouritesBinding get() = _binding!!
 
-    private lateinit var viewModel : CryptoViewModel
-    lateinit var favAdapter : CryptoAdapter
+    private lateinit var viewModel: CryptoViewModel
+    lateinit var favAdapter: CryptoAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,6 +42,7 @@ class Favourites : Fragment() {
 
         viewModel.getSavedCrypto().observe(viewLifecycleOwner, Observer {
             favAdapter.submitList(it)
+
         })
 
 
@@ -81,13 +79,12 @@ class Favourites : Fragment() {
             attachToRecyclerView(binding.FavRecView)
         }
 
-
-
         setHasOptionsMenu(true)
 
         return binding.root
 
     }
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.fav_menu, menu)
@@ -104,32 +101,35 @@ class Favourites : Fragment() {
     }
 
 
-    private fun setRecyclerView(myAdapter : CryptoAdapter){
+    private fun setRecyclerView(myAdapter: CryptoAdapter) {
         binding.FavRecView.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = myAdapter
+
+            val emptyDataObserver = EmptyDataObserver(binding.FavRecView, binding.emptyStateRecview)
+            favAdapter.registerAdapterDataObserver(emptyDataObserver)
+
             itemAnimator = LandingAnimator().apply {
                 addDuration = 400L
             }
         }
     }
 
-    private fun deleteAllDialog(){
+    private fun deleteAllDialog() {
         val alertDialog = AlertDialog.Builder(requireContext()).apply {
             setTitle("Clear All")
             setMessage("Delete all saved currencies?")
             setIcon(R.drawable.ic_delete)
-            setPositiveButton("Yes"){ i,j ->
+            setPositiveButton("Yes") { i, j ->
                 viewModel.deleteALl()
                 Toast.makeText(requireContext(), "Cleared All", Toast.LENGTH_SHORT).show()
             }
-            setNegativeButton("No"){i,j ->
+            setNegativeButton("No") { i, j ->
 
             }
             setCancelable(true)
         }.create().show()
     }
-
 
 
 }

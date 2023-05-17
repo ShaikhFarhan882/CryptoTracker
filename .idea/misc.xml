@@ -12,13 +12,15 @@
         <entry key="..\:/Users/FARHAN/AndroidStudioProjects/CryptoTracker/app/src/main/res/drawable/ic_refresh.xml" value="0.1545" />
         <entry key="..\:/Users/FARHAN/AndroidStudioProjects/CryptoTracker/app/src/main/res/drawable/nav_bar_colors.xml" value="0.1545" />
         <entry key="..\:/Users/FARHAN/AndroidStudioProjects/CryptoTracker/app/src/main/res/layout/activity_main.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/FARHAN/AndroidStudioProjects/CryptoTracker/app/src/main/res/layout/empty_state_search.xml" value="0.15052083333333333" />
         <entry key="..\:/Users/FARHAN/AndroidStudioProjects/CryptoTracker/app/src/main/res/layout/fragment_favourites.xml" value="0.22" />
         <entry key="..\:/Users/FARHAN/AndroidStudioProjects/CryptoTracker/app/src/main/res/layout/fragment_home.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/FARHAN/AndroidStudioProjects/CryptoTracker/app/src/main/res/layout/fragment_search.xml" value="0.178125" />
         <entry key="..\:/Users/FARHAN/AndroidStudioProjects/CryptoTracker/app/src/main/res/layout/fragment_search_crypto.xml" value="0.16666666666666666" />
-        <entry key="..\:/Users/FARHAN/AndroidStudioProjects/CryptoTracker/app/src/main/res/layout/single_row.xml" value="0.34130434782608693" />
-        <entry key="..\:/Users/FARHAN/AndroidStudioProjects/CryptoTracker/app/src/main/res/layout/single_row_search.xml" value="0.178125" />
-        <entry key="..\:/Users/FARHAN/AndroidStudioProjects/CryptoTracker/app/src/main/res/menu/bottom_nav.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/FARHAN/AndroidStudioProjects/CryptoTracker/app/src/main/res/layout/recycler_view_empty_state.xml" value="0.14947916666666666" />
+        <entry key="..\:/Users/FARHAN/AndroidStudioProjects/CryptoTracker/app/src/main/res/layout/single_row.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/FARHAN/AndroidStudioProjects/CryptoTracker/app/src/main/res/layout/single_row_search.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/FARHAN/AndroidStudioProjects/CryptoTracker/app/src/main/res/menu/bottom_nav.xml" value="0.22" />
         <entry key="..\:/Users/FARHAN/AndroidStudioProjects/CryptoTracker/app/src/main/res/menu/fav_menu.xml" value="0.178125" />
         <entry key="..\:/Users/FARHAN/AndroidStudioProjects/CryptoTracker/app/src/main/res/menu/home_menu.xml" value="0.178125" />
       </map>
