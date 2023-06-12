@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNav.setupWithNavController(navController)
 
         val database = CryptoDatabase.getDatabase(this)
+
         val repository = Repository(database)
         viewModel = ViewModelProvider(
             this,
