@@ -11,7 +11,8 @@ MVVM (Model - ViewModel - View) is the design pattern used for making this app. 
 4. ViewModel
 5. Coroutines
 6. Room Database
-7. Data binding  
+7. Dagger-Hilt (Dependency Injection)
+8. Data binding  
 
 # API used  
 https://docs.coincap.io/  
