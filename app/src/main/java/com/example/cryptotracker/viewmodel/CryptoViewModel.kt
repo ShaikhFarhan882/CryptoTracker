@@ -8,18 +8,21 @@ import android.net.NetworkCapabilities
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.example.cryptotracker.BaseApplication
 import com.example.cryptotracker.model.CryptoResponse
 import com.example.cryptotracker.model.Data
 import com.example.cryptotracker.model.search.SearchResponse
 import com.example.cryptotracker.repo.Repository
-import com.example.cryptotracker.utils.GetContext
 import com.example.cryptotracker.utils.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Response
 import java.io.IOException
+import javax.inject.Inject
 
 
-class CryptoViewModel(private val repository: Repository, application: Application) :
+@HiltViewModel
+class CryptoViewModel @Inject constructor(private val repository: Repository, application: Application) :
     AndroidViewModel(application) {
 
     val cryptoList: MutableLiveData<Resource<CryptoResponse>> = MutableLiveData()
@@ -119,7 +122,7 @@ class CryptoViewModel(private val repository: Repository, application: Applicati
     //Internet Connectivity Conformation
     fun checkForConnectivity(): Boolean {
         var result = false
-        val connectivityManager = getApplication<GetContext>().applicationContext.getSystemService(
+        val connectivityManager = getApplication<BaseApplication>().applicationContext.getSystemService(
             Context.CONNECTIVITY_SERVICE
         ) as ConnectivityManager?
 

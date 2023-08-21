@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cryptotracker.MainActivity
@@ -18,10 +19,13 @@ import com.example.cryptotracker.databinding.FragmentSearchCryptoBinding
 import com.example.cryptotracker.utils.EmptyDataObserver
 import com.example.cryptotracker.utils.Resource
 import com.example.cryptotracker.viewmodel.CryptoViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import jp.wasabeef.recyclerview.animators.SlideInDownAnimator
-
+@AndroidEntryPoint
 class SearchCrypto : Fragment() {
-    private lateinit var searchViewModel : CryptoViewModel
+
+    private val searchViewModel by viewModels<CryptoViewModel>()
+
     private lateinit var searchAdapter : SearchAdapter
     private var _binding: FragmentSearchCryptoBinding? = null
     private val binding: FragmentSearchCryptoBinding get() = _binding!!
@@ -32,8 +36,6 @@ class SearchCrypto : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentSearchCryptoBinding.inflate(layoutInflater)
-
-        searchViewModel = (requireActivity() as MainActivity).viewModel
 
         searchAdapter = SearchAdapter()
         setUpRecyclerView(searchAdapter)

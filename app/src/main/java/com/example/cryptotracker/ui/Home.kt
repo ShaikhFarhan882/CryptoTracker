@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
@@ -13,13 +14,16 @@ import com.example.cryptotracker.adapter.CryptoAdapter
 import com.example.cryptotracker.databinding.FragmentHomeBinding
 import com.example.cryptotracker.utils.Resource
 import com.example.cryptotracker.viewmodel.CryptoViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import jp.wasabeef.recyclerview.animators.SlideInDownAnimator
 
-
+@AndroidEntryPoint
 class Home : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding: FragmentHomeBinding get() = _binding!!
-    private lateinit var viewModel: CryptoViewModel
+
+    private val viewModel by viewModels<CryptoViewModel>()
+
     lateinit var myAdapter: CryptoAdapter
 
     override fun onCreateView(
@@ -28,7 +32,7 @@ class Home : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentHomeBinding.inflate(layoutInflater)
-        viewModel = (activity as MainActivity).viewModel
+
 
        /* (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbarHome)
         (requireActivity() as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)

@@ -1,15 +1,17 @@
 package com.example.cryptotracker.repo
 
 import androidx.lifecycle.LiveData
-import com.example.cryptotracker.api.RetrofitBuilder
+import com.example.cryptotracker.api.CryptoService
 import com.example.cryptotracker.database.CryptoDatabase
 import com.example.cryptotracker.model.Data
+import javax.inject.Inject
 
-class Repository(private val cryptoDatabase: CryptoDatabase) {
+class Repository @Inject constructor(val cryptoService: CryptoService, private val cryptoDatabase: CryptoDatabase) {
 
-    suspend fun getCryptoData() = RetrofitBuilder.API.getCryptoData()
+    suspend fun getCryptoData() = cryptoService.getCryptoData()
 
-    suspend fun searchCrypto(id : String) = RetrofitBuilder.API.searchCrypto(id)
+    suspend fun searchCrypto(id : String) = cryptoService.searchCrypto(id)
+
 
     suspend fun upsert(data: Data) = cryptoDatabase.cryptoDAO().upsert(data)
 

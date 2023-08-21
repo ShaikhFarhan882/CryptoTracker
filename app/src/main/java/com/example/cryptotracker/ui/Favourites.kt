@@ -5,6 +5,7 @@ import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,15 +17,17 @@ import com.example.cryptotracker.databinding.FragmentFavouritesBinding
 import com.example.cryptotracker.utils.EmptyDataObserver
 import com.example.cryptotracker.viewmodel.CryptoViewModel
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 import jp.wasabeef.recyclerview.animators.LandingAnimator
 
-
+@AndroidEntryPoint
 class Favourites : Fragment() {
 
     private var _binding: FragmentFavouritesBinding? = null
     private val binding: FragmentFavouritesBinding get() = _binding!!
 
-    private lateinit var viewModel: CryptoViewModel
+    private val viewModel by viewModels<CryptoViewModel>()
+
     lateinit var favAdapter: CryptoAdapter
 
     override fun onCreateView(
@@ -34,8 +37,6 @@ class Favourites : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentFavouritesBinding.inflate(layoutInflater)
 
-
-        viewModel = (activity as MainActivity).viewModel
 
         favAdapter = CryptoAdapter()
         setRecyclerView(favAdapter)

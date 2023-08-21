@@ -4,23 +4,18 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.cryptotracker.connectivity.CheckConnectionLiveData
-import com.example.cryptotracker.database.CryptoDatabase
 import com.example.cryptotracker.databinding.ActivityMainBinding
-import com.example.cryptotracker.repo.Repository
-import com.example.cryptotracker.viewmodel.CryptoViewModel
-import com.example.cryptotracker.viewmodel.ViewModelFactory
 import com.google.android.material.elevation.SurfaceColors
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-
-    lateinit var viewModel: CryptoViewModel
 
     private lateinit var status: CheckConnectionLiveData
 
@@ -42,14 +37,6 @@ class MainActivity : AppCompatActivity() {
         checkNetworkState()
 
         binding.bottomNav.setupWithNavController(navController)
-
-        val database = CryptoDatabase.getDatabase(this)
-
-        val repository = Repository(database)
-        viewModel = ViewModelProvider(
-            this,
-            ViewModelFactory(repository, application)
-        ).get(CryptoViewModel::class.java)
 
     }
 
