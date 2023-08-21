@@ -51,7 +51,6 @@ class MainActivity : AppCompatActivity() {
             ViewModelFactory(repository, application)
         ).get(CryptoViewModel::class.java)
 
-
     }
 
     fun checkNetworkState() {
